@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiLoginApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,20"
+            Spacing="20">
+
+            <!-- Name heading -->
+            <Label
+                Text="Ulysses Burden III"
+                Style="{StaticResource Headline}"
+                HorizontalOptions="Center"/>
+
+            <!-- Login screen heading -->
+            <Label
+                Text="Login Screen"
+                FontSize="22"
+                FontAttributes="Bold,Italic"
+                HorizontalOptions="Center"/>
+
+            <!-- Username -->
+            <Label Text="User Name"/>
+
+            <Entry
+                x:Name="txtUsername"
+                Keyboard="Text"
+                Placeholder="Enter user name"/>
+
+            <!-- Password -->
+            <Label Text="Password"/>
+
+            <Entry
+                x:Name="txtPassword"
+                Keyboard="Text"
+                Placeholder="Enter password"
+                IsPassword="True"/>
+
+            <Grid
+                ColumnSpacing="10"
+                ColumnDefinitions="*,*">
+                <!-- Login button -->
+                <Button
+                    Text="Login"
+                    Grid.Column="0"
+                    HorizontalOptions="Center"
+                    Clicked="OnLoginClicked"/>
+                <!--Cancel button-->
+                <Button
+                    Text="Cancel"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Clicked="OnCancelClicked"/>
+            </Grid>
+            <!--Display Message-->
+            <Label
+                x:Name="lblMessage"
+                Text=""
+                TextColor="Black"
+                HorizontalOptions="Center"/>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
