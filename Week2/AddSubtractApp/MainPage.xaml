@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AddSubtractApp.MainPage"
+    Title="Add and Subtract">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="25"
+            Spacing="15">
+
+            <!-- Page heading -->
+            <Label
+                Text="Ulysses Burden III Add and Subtract"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+
+            <!-- First value -->
+            <Label Text="First Value"/>
+
+            <Entry
+                x:Name="txtFirstValue"
+                Placeholder="Enter first number"
+                Keyboard="Numeric"/>
+
+            <!-- Second value -->
+            <Label Text="Second Value"/>
+
+            <Entry
+                x:Name="txtSecondValue"
+                Placeholder="Enter second number"
+                Keyboard="Numeric"/>
+
+            <!-- Addition and Subtraction buttons -->
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="10">
+
+                <Button
+                    Grid.Column="0"
+                    Text="Addition"
+                    Clicked="OnAdditionClicked"/>
+
+                <Button
+                    Grid.Column="1"
+                    Text="Subtraction"
+                    Clicked="OnSubtractionClicked"/>
+
+            </Grid>
+
+            <!-- Blank message label -->
+            <Label
+                x:Name="lblMessage"
+                Text=""
+                FontSize="24"
+                HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
