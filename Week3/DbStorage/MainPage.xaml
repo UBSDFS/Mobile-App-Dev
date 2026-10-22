@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:Mobile_app_dev.Week3.DbStorage.Models"
+    x:Class="Mobile_app_dev.Week3.DbStorage.MainPage"
+    Title="Local Storage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,20"
+            Spacing="25">
+
+            <!-- Page Heading -->
+            <Label
+                Text="Ulysses Burden III - Local Storage"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1"/>
+
+            <!-- Person Input Form -->
+            <Grid
+                RowDefinitions="Auto,Auto,Auto"
+                ColumnDefinitions="Auto,*"
+                RowSpacing="15"
+                ColumnSpacing="10">
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="First Name:"
+                    VerticalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level2"/>
+
+                <Entry
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="txtFirstName"
+                    Placeholder="Enter your first name"/>
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Last Name:"
+                    VerticalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level2"/>
+
+                <Entry
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    x:Name="txtLastName"
+                    Placeholder="Enter your last name"/>
+
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="DOB:"
+                    VerticalTextAlignment="Center"
+                    SemanticProperties.HeadingLevel="Level2"/>
+
+                <DatePicker
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    x:Name="dpDateOfBirth"
+                    Date="{x:Null}"
+                    Format="MM-dd-yyyy"/>
+
+            </Grid>
+
+            <!-- Save Button -->
+            <Button
+                x:Name="btnSave"
+                Text="Save Person"
+                HorizontalOptions="Center"
+                Clicked="OnSaveClicked"/>
+
+            <!-- Saved People -->
+            <CollectionView
+                VerticalOptions="Fill"
+                ItemsSource="{Binding People}"
+                SelectionMode="Single">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Person">
+                        <Grid
+                            ColumnDefinitions="*,*,Auto"
+                            Padding="20"
+                            ColumnSpacing="10">
+
+                            <Label
+                                Grid.Column="0"
+                                Text="{Binding FirstName}"
+                                VerticalTextAlignment="Center"/>
+
+                            <Label
+                                Grid.Column="1"
+                                Text="{Binding LastName}"
+                                VerticalTextAlignment="Center"/>
+
+                            <Label
+                                Grid.Column="2"
+                                Text="{Binding DOB, StringFormat='{0:MM-dd-yyyy}'}"
+                                VerticalTextAlignment="Center"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
