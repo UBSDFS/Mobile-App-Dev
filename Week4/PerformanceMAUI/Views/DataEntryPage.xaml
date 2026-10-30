@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PerformanceMAUI.Views.DataEntryPage"
+             Title="Items">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30"
+                Spacing="15">
+
+            <Label Text="Ulysses Burden"
+                   FontSize="26"
+                   FontAttributes="Bold"/>
+
+            <Label Text="Please provide the following information:"
+                   FontSize="18"/>
+
+            <Entry Placeholder="Item ID"
+                   Keyboard="Numeric"
+                   Text="{Binding ItemId}"/>
+
+            <Entry Placeholder="Item Name"
+                   Text="{Binding ItemName}"/>
+
+            <Entry Placeholder="Item Description"
+                   Text="{Binding ItemDescription}"/>
+
+            <Button Text="Save"
+                    Clicked="OnSaveClicked"/>
+
+            <Label Text="Stored Items"
+                   FontSize="20"
+                   FontAttributes="Bold"/>
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding Items}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding ItemName}"
+                               FontSize="16"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
